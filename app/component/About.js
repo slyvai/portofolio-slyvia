@@ -10,7 +10,7 @@ export default function AboutMe() {
       {/* 🌟 Meet Me Section */}
       <div className="about-text text-center mb-16 z-20">
         <h1 className="text-5xl md:text-6xl font-bold">
-          Meet <span className="text-[#3fb950]">Me!</span>
+          Meet <span className="text-[#407BFF]">Me!</span>
         </h1>
         <p className="text-[#888] mt-2 text-sm tracking-widest uppercase">
           — get to know me —
@@ -86,19 +86,19 @@ export default function AboutMe() {
               <p>
                 🎓{" "}
                 <span className="text-[#3fb950] font-semibold">
-                  SD Widuri Indah
+                  SD Widuri Indah - Graduated 2014-2019 
                 </span>
               </p>
               <p>
                 🎓{" "}
                 <span className="text-[#3fb950] font-semibold">
-                  SMP Permata Bunda
+                  SMP Permata Bunda - Graduated 2020-2023
                 </span>
               </p>
               <p>
                 🎓{" "}
                 <span className="text-[#3fb950] font-semibold">
-                  Sekolah Tri Ratna
+                  Sekolah Tri Ratna - On Going 2024-Present
                 </span>
               </p>
               <p>
@@ -123,25 +123,13 @@ export default function AboutMe() {
             <ul className="space-y-2 text-sm">
               <li>
                 1{" "}
-                <a href="#" className="text-[#58a6ff] hover:underline">
-                  LinkedIn ↗
-                </a>
-              </li>
-              <li>
-                2{" "}
-                <a href="#" className="text-[#3fb950] hover:underline">
+                <a href="https://www.instagram.com/sll.yviaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="text-[#3fb950] hover:underline">
                   Instagram ↗
                 </a>
               </li>
               <li>
-                3{" "}
-                <a href="#" className="text-[#ff7b72] hover:underline">
-                  Twitter ↗
-                </a>
-              </li>
-              <li>
-                4{" "}
-                <a href="#" className="text-[#d29922] hover:underline">
+                2{" "}
+                <a href="https://github.com/slyvai" className="text-[#d29922] hover:underline">
                   GitHub ↗
                 </a>
               </li>
