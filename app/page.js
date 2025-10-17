@@ -1,103 +1,199 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import OnPage from "./component/Home";
+import AboutMe from "./component/About";
+import CurvedLoop from "./TextAnimations/CurvedLoop/CurvedLoop";
+
+export default function App() {
+  const [active, setActive] = useState("home");
+
+  // 🔹 Update active section when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "projects", "contact"];
+      let current = "home";
+
+      for (let id of sections) {
+        const section = document.getElementById(id);
+        if (section) {
+          const sectionTop = section.offsetTop - 200;
+          if (window.scrollY >= sectionTop) {
+            current = id;
+          }
+        }
+      }
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const menuItems = [
+    { name: "Home", icon: HomeIcon, id: "home" },
+    { name: "About", icon: AboutIcon, id: "about" },
+    { name: "Projects", icon: ProjectIcon, id: "projects" },
+    { name: "Contact", icon: ContactIcon, id: "contact" },
+  ];
+
+  // 🔹 Smooth scroll to section when clicking sidebar
+  const handleScrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      window.scrollTo({
+        top: el.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="relative min-h-screen overflow-x-hidden text-white font-geist bg-blue-950 scroll-smooth">
+      {/* 🔵 Blue Glow Gradient Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(64,121,255,0.25)_0%,rgba(0,0,20,0.95)_70%)] animate-glow" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* 🔁 CurvedLoop Background */}
+      <div className="fixed inset-0 opacity-50">
+        <CurvedLoop
+          marqueeText="Welcome to My Portfolio • Welcome to My Portfolio • Welcome to My Portfolio • "
+          speed={0.1}
+          curveAmount={0}
+          direction="right"
+          interactive={true}
+          className="custom-text-style"
+        />
+      </div>
+
+      {/* 🧭 Sidebar */}
+      <div className="fixed left-0 top-0 flex h-screen w-16 flex-col justify-between border-e border-blue-800/40 bg-blue-900/30 backdrop-blur-md shadow-md z-20">
+        <div>
+          <div className="inline-flex size-16 items-center justify-center">
+            <span className="text-white text-lg font-semibold tracking-wider">
+              S
+            </span>
+          </div>
+
+          <div className="border-t border-blue-800/40">
+            <div className="px-2 py-4 space-y-1">
+              {menuItems.map(({ name, icon: Icon, id }) => (
+                <button
+                  key={id}
+                  onClick={() => handleScrollTo(id)}
+                  className={`group relative flex justify-center w-full rounded-md px-2 py-2 transition-all duration-200 ${
+                    active === id
+                      ? "bg-blue-700/60 text-white backdrop-blur-sm"
+                      : "text-blue-200 hover:bg-blue-800/50 hover:text-white"
+                  }`}
+                >
+                  <Icon className="size-5 opacity-80" />
+                  <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-md bg-gray-900/80 px-2 py-1.5 text-xs font-medium text-white group-hover:visible shadow">
+                    {name}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* ✨ Main Content */}
+      <main className="relative z-10 ml-16 scroll-smooth">
+        <section id="home" className="min-h-screen">
+          <OnPage />
+        </section>
+
+        <section id="about" className="min-h-screen">
+          <AboutMe />
+        </section>
+
+        <section
+          id="projects"
+          className="min-h-screen flex items-center justify-center text-blue-200 text-xl"
+        >
+          Projects Section
+        </section>
+
+        <section
+          id="contact"
+          className="min-h-screen flex items-center justify-center text-blue-200 text-xl"
+        >
+          Contact Section
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
+  );
+}
+
+/* ==== ICON COMPONENTS ==== */
+function HomeIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 9.75L12 3l9 6.75M4.5 10.5v9.75h15V10.5"
+      />
+    </svg>
+  );
+}
+
+function AboutIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 4.5v15m0 0c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6z"
+      />
+    </svg>
+  );
+}
+
+function ProjectIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
+
+function ContactIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16 12a4 4 0 11-8 0m8 0v5m-8-5v5m-2 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2z"
+      />
+    </svg>
   );
 }
