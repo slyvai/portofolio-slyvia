@@ -9,7 +9,7 @@ export default function OnPage() {
 
         <div className="content relative z-10 px-6 md:px-12 lg:px-24">
           <h1>
-            Hi, I'm Slyvia, a <br /> <span className="text-[#407BFF]">Designer & Developer</span>
+            Hi, I&apos;m Slyvia, a <br /> <span className="text-[#407BFF]">Designer & Developer</span>
           </h1>
           <p>Crafting beautiful and functional digital experiences.</p>
         </div>
