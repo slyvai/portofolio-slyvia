@@ -22,10 +22,7 @@ export default function ContactSection() {
 
          
           <p className="max-w-2xl mx-auto text-white/70 text-base md:text-lg mb-12">
-            I&apos;m always excited to connect with fellow developers, designers,
-            or anyone interested in collaborating on innovative projects. Whether
-            you have a question, a project idea, or just want to say hello, feel
-            free to reach out!
+            Contact me for collaborations, projects, or just to say hello! I&apos;d love to hear from you.
           </p>
 
           <a
