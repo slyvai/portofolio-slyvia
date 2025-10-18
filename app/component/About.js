@@ -1,142 +1,156 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { SiReact, SiNextdotjs, SiCss3, SiTailwindcss } from "react-icons/si";
+import LogoLoop from "../Animations/LogoLoop/LogoLoop";
 import "../styles/About.css";
 
 export default function AboutMe() {
+  const techLogos = [
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiReact />, title: "React.js", href: "https://react.dev" },
+    { node: <SiCss3 />, title: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    { node: <SiTailwindcss />, title: "TailwindCSS", href: "https://tailwindcss.com" },
+  ];
+
+  const fadeInUp = (delay = 0) => ({
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, delay, ease: "easeOut" },
+    },
+  });
+
   return (
-    <>
-      {/* 🌟 Meet Me Section */}
-      <div className="about-text text-center mb-16 z-20">
-        <h1 className="text-5xl md:text-6xl font-bold">
-          Meet <span className="text-[#407BFF]">Me!</span>
+    <section className="min-h-screen w-full flex flex-col justify-center items-center px-4 sm:px-6 md:px-10 lg:px-16 py-20 md:py-24 font-mono text-[#4DA3FF] relative overflow-hidden">
+      
+      <div className="absolute inset-0 bg-[repeating-linear-gradient(transparent,transparent_2px,rgba(77,163,255,0.05)_3px)] pointer-events-none"></div>
+
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp(0.2)}
+        className="text-center mb-12 sm:mb-16"
+      >
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4DA3FF] drop-shadow-[0_0_10px_#4DA3FF60]">
+          About Me
         </h1>
-        <p className="text-[#888] mt-2 text-sm tracking-widest uppercase">
-          — get to know me —
-        </p>
-      </div>
+      </motion.div>
 
-      <section className="min-h-screen text-gray-300 flex flex-col items-center justify-center px-6 py-20 font-mono relative overflow-hidden">
-        <div className="relative w-full flex justify-center items-center">
 
-          {/* 🧍‍♀️ about-me */}
-          <motion.div
-            drag
-            dragConstraints={{ left: -150, right: 150, top: -150, bottom: 150 }}
-            dragElastic={0.3}
-            whileDrag={{ scale: 1.03, cursor: "grabbing" }}
-            className="cursor-grab absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[500px] bg-[#0d1117] rounded-xl shadow-xl border border-[#1e1e1e] p-8 space-y-6"
-          >
-            <p className="text-[#888] text-sm mb-4 tracking-wider">about-me</p>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp(0.3)}
+        className="relative border-2 border-[#4DA3FF]/40 rounded-xl shadow-[0_0_25px_#4DA3FF80] w-full max-w-4xl p-4 sm:p-6 md:p-8 lg:p-10 backdrop-blur-sm bg-[#001a2f]/40"
+      >
+ 
+        <motion.div variants={fadeInUp(0.4)} className="flex items-center gap-2 mb-4 sm:mb-6">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#ff5f56] rounded-full shadow-[0_0_8px_#ff5f56]" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#ffbd2e] rounded-full shadow-[0_0_8px_#ffbd2e]" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#27c93f] rounded-full shadow-[0_0_8px_#27c93f]" />
+          <span className="ml-2 sm:ml-3 text-[10px] sm:text-xs text-[#8ecaff]">
+            terminal: slyvia@bluecore
+          </span>
+        </motion.div>
 
-            <div className="space-y-3 leading-relaxed border-l-2 border-[#58a6ff] pl-4">
-              <p>
-                <span className="text-[#58a6ff]">01.</span>{" "}
-                <span className="text-white">Nice to meet you!</span> I&apos;m{" "}
-                <span className="text-[#58a6ff] font-semibold">Slyvia</span> — a{" "}
-                <span className="text-[#3fb950] font-semibold">
-                  Creative Web Developer
-                </span>{" "}
-                who loves turning imagination into interactive design.
-              </p>
-            </div>
-
-            <div className="space-y-3 leading-relaxed border-l-2 border-[#ff7b72] pl-4">
-              <p>
-                <span className="text-[#58a6ff]">02.</span> I&apos;m passionate
-                about{" "}
-                <span className="text-[#58a6ff] font-semibold">web design</span>{" "}
-                &amp;
-                <span className="text-[#ff7b72] font-semibold">
-                  {" "}
-                  front-end development
-                </span>
-                , blending{" "}
-                <span className="text-[#9e6ffe] font-semibold">creativity</span>{" "}
-                and{" "}
-                <span className="text-[#3fb950] font-semibold">logic</span> to
-                build user experiences that feel both elegant and alive.
-              </p>
-            </div>
-
-            <div className="space-y-3 leading-relaxed border-l-2 border-[#9e6ffe] pl-4">
-              <p>
-                <span className="text-[#58a6ff]">03.</span> For me,{" "}
-                <span className="text-[#3fb950] font-semibold">coding</span>{" "}
-                isn&apos;t just work — it&apos;s a playground. I love{" "}
-                <span className="text-[#ff7b72]">experimenting</span> with new{" "}
-                <span className="text-[#d29922]">technologies</span>,
-                maintaining{" "}
-                <span className="text-[#58a6ff]">personal projects</span>.
-              </p>
-            </div>
+  
+        <div className="space-y-5 sm:space-y-6 md:space-y-7 text-sm sm:text-base md:text-lg text-[#b5dcff] leading-relaxed">
+          <motion.div variants={fadeInUp(0.5)}>
+            <span className="text-[#4DA3FF]">&gt;_</span> Initializing profile...
           </motion.div>
 
-          {/* 🎓 education */}
-          <motion.div
-            drag
-            dragConstraints={{ left: -200, right: 200, top: -150, bottom: 150 }}
-            dragElastic={0.3}
-            whileDrag={{ scale: 1.03, cursor: "grabbing" }}
-            className="cursor-grab absolute bottom-[15%] left-[20%] w-[280px] bg-[#0d1117] rounded-xl shadow-xl border border-[#1e1e1e] p-6"
-          >
-            <p className="text-[#888] text-sm mb-3 tracking-wider">education</p>
-            <div className="space-y-2 text-sm leading-relaxed">
-              <p>
-                🎓{" "}
-                <span className="text-[#3fb950] font-semibold">
-                  SD Widuri Indah - Graduated 2014-2019 
-                </span>
-              </p>
-              <p>
-                🎓{" "}
-                <span className="text-[#3fb950] font-semibold">
-                  SMP Permata Bunda - Graduated 2020-2023
-                </span>
-              </p>
-              <p>
-                🎓{" "}
-                <span className="text-[#3fb950] font-semibold">
-                  Sekolah Tri Ratna - On Going 2024-Present
-                </span>
-              </p>
-              <p>
-                💻 Specialized in{" "}
-                <span className="text-[#58a6ff]">Front-End Development</span>{" "}
-                &amp;
-                <span className="text-[#ff7b72]"> UI Design</span>.
-              </p>
-              <p>🌱 Always learning and improving design systems.</p>
-            </div>
+          <motion.div variants={fadeInUp(0.6)}>
+            <span className="text-[#4DA3FF]">&gt;_</span> Hello! I&apos;m{" "}
+            <span className="text-[#73C2FF] font-semibold">Slyvia</span>, a{" "}
+            <span className="text-[#9bd6ff] font-semibold">Frontend Developer</span> and{" "}
+            <span className="text-[#73C2FF] font-semibold">UI/UX Designer</span> who loves
+            turning ideas into clean, interactive, and aesthetic web experiences.
           </motion.div>
 
-          {/* 🌐 me-online */}
-          <motion.div
-            drag
-            dragConstraints={{ left: -200, right: 200, top: -150, bottom: 150 }}
-            dragElastic={0.3}
-            whileDrag={{ scale: 1.03, cursor: "grabbing" }}
-            className="cursor-grab absolute bottom-[15%] right-[20%] w-[250px] bg-[#0d1117] rounded-xl shadow-xl border border-[#1e1e1e] p-6"
-          >
-            <p className="text-[#888] text-sm mb-3 tracking-wider">me-online</p>
-            <ul className="space-y-2 text-sm">
-              <li>
-                1{" "}
-                <a href="https://www.instagram.com/sll.yviaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="text-[#3fb950] hover:underline">
+          <motion.div variants={fadeInUp(0.7)}>
+            <span className="text-[#4DA3FF]">&gt;_</span> I focus on crafting{" "}
+            <span className="text-[#8ecaff] font-semibold">beautiful user interfaces</span> and
+            smooth interactions, making every click, scroll, and hover feel delightful.
+          </motion.div>
+
+          <motion.div variants={fadeInUp(0.8)}>
+            <span className="text-[#4DA3FF]">&gt;_</span> Currently studying at{" "}
+            <span className="text-[#9bd6ff] font-semibold">Sekolah Tri Ratna</span> (2024 - present),
+            while improving my design thinking, motion design, and front-end skills.
+          </motion.div>
+
+          <motion.div variants={fadeInUp(0.9)}>
+            <span className="text-[#4DA3FF]">&gt;_</span> Find me online:
+            <div className="ml-6 mt-2 space-y-1 sm:space-y-2">
+              <p>
+                [1]{" "}
+                <a
+                  href="https://www.instagram.com/sll.yviaa"
+                  className="text-[#73C2FF] hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Instagram ↗
                 </a>
-              </li>
-              <li>
-                2{" "}
-                <a href="https://github.com/slyvai" className="text-[#d29922] hover:underline">
+              </p>
+              <p>
+                [2]{" "}
+                <a
+                  href="https://github.com/slyvai"
+                  className="text-[#4DA3FF] hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   GitHub ↗
                 </a>
-              </li>
-            </ul>
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeInUp(1.0)}>
+            <span className="text-[#4DA3FF]">&gt;_</span>{" "}
+            <span className="text-[#73C2FF] font-semibold">
+              Outside of coding, I enjoy painting and editing videos.
+            </span>
+          </motion.div>
+
+          <motion.div variants={fadeInUp(1.1)}>
+            <span className="text-[#4DA3FF]">&gt;_</span>{" "}
+            <span className="text-[#73C2FF] font-semibold">
+              Blue is my favorite color :)
+            </span>
           </motion.div>
         </div>
-      </section>
-    </>
+      </motion.div>
+
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeInUp(0.4)}
+        className="mt-16 sm:mt-20 md:mt-24 text-center"
+      >
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4DA3FF] drop-shadow-[0_0_10px_#4DA3FF60] mb-8 sm:mb-10">
+          My Skills
+        </h1>
+        <LogoLoop
+          logos={techLogos}
+          speed={30}
+          direction="left"
+          logoHeight={50}
+          gap={50}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          ariaLabel="Tech skills"
+        />
+      </motion.div>
+    </section>
   );
 }
