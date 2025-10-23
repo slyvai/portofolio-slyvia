@@ -42,24 +42,32 @@ const otherProjects = [
   {
     title: "BrandingFolio Clone",
     description: "A clone of the BrandingFolio website showcasing a portfolio of design projects with a modern and responsive layout.",
-    tech: ["React", "CSS", "JavaScript", "GSAP"],
+    tech: ["React", "CSS", "GSAP"],
     github: "https://github.com/slyvai/brandingfolio-clone",
     demo: "https://brandingfolio-clone.vercel.app/",
   },
   {
     title: "Advice Generator",
     description: "A simple advice generator app that fetches random advice from an API and displays it with a clean UI.",
-    tech: ["React", "API", "CSS", "JavaScript"],
+    tech: ["React", "API", "CSS"],
     github: "https://github.com/slyvai/advice-generator",
     demo: "https://advice-generator-alpha-ecru.vercel.app/",
+  },
+   {
+    title: "Recipe Website",
+    description: "A recipe website that allows users to browse, search, and view detailed recipes with ingredients and cooking instructions.",
+    tech: ["Next.js", "CSS", "API Integration"],
+    github: "https://github.com/slyvai/nexjs-recipes",
+    demo: "https://nexjs-recipes.vercel.app/",
   },
   {
     title: "My First Portfolio Website",
     description: "A personal portfolio website to showcase my projects and skills as a developer and designer.",
-    tech: ["React", "CSS", "JavaScript", "GSAP"],
+    tech: ["React", "CSS", "GSAP"],
     github: "https://github.com/slyvai/portofolio_website",
     demo: "https://portofolio-website-eight-psi.vercel.app/",
   },
+  
 ];
 
 export default function ProjectsSection() {

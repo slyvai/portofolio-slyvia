@@ -1,17 +1,4 @@
 
-
-@keyframes ripple {
-  0% {
-    background-size: 200% 200%;
-  }
-  50% {
-    background-size: 220% 220%;
-  }
-  100% {
-    background-size: 200% 200%;
-  }
-}
-
 @keyframes scrollWheel {
   0% {
     transform: translateY(0);
