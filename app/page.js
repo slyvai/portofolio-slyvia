@@ -7,7 +7,7 @@ import ProjectsSection from "./component/Projects";
 import ContactSection from "./component/Contact";
 import CurvedLoop from "./TextAnimations/CurvedLoop/CurvedLoop";
 
-// ✅ Import modern Lucide icons
+
 import {
   House,
   User,
@@ -65,10 +65,9 @@ export default function App() {
       <div className="fixed inset-0 opacity-50">
         <CurvedLoop
           marqueeText="Welcome to My Portfolio • Welcome to My Portfolio • "
-          speed={0.2}
+          speed={0.5}
           curveAmount={0}
           direction="right"
-          interactive={true}
           className="custom-text-style"
         />
       </div>

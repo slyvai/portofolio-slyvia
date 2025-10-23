@@ -2,17 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SiReact, SiNextdotjs, SiCss3, SiTailwindcss } from "react-icons/si";
-import LogoLoop from "../Animations/LogoLoop/LogoLoop";
 import "../styles/About.css";
 
 export default function AboutMe() {
-  const techLogos = [
-    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <SiReact />, title: "React.js", href: "https://react.dev" },
-    { node: <SiCss3 />, title: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-    { node: <SiTailwindcss />, title: "TailwindCSS", href: "https://tailwindcss.com" },
-  ];
-
   const fadeInUp = (delay = 0) => ({
     hidden: { opacity: 0, y: 40 },
     show: {
@@ -75,7 +67,7 @@ export default function AboutMe() {
           <motion.div variants={fadeInUp(0.7)}>
             <span className="text-[#4DA3FF]">&gt;_</span> I focus on crafting{" "}
             <span className="text-[#8ecaff] font-semibold">beautiful user interfaces</span> and
-            smooth interactions, making every click, scroll, and hover feel delightful.
+            smooth interactions using modern web technologies.
           </motion.div>
 
           <motion.div variants={fadeInUp(0.8)}>
@@ -113,44 +105,21 @@ export default function AboutMe() {
           </motion.div>
 
           <motion.div variants={fadeInUp(1.0)}>
-            <span className="text-[#4DA3FF]">&gt;_</span>{" "}
+            <span className="text-[#4DA3FF]">&gt;_</span> My Skills
             <span className="text-[#73C2FF] font-semibold">
-              Outside of coding, I enjoy painting and editing videos.
+              {" "}: React, Next.js, Tailwind CSS, JavaScript, HTML, CSS
             </span>
           </motion.div>
 
           <motion.div variants={fadeInUp(1.1)}>
             <span className="text-[#4DA3FF]">&gt;_</span>{" "}
             <span className="text-[#73C2FF] font-semibold">
-              Blue is my favorite color :)
+              Blue is my favorite color :&#41;
             </span>
           </motion.div>
         </div>
       </motion.div>
 
-
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeInUp(0.4)}
-        className="mt-16 sm:mt-20 md:mt-24 text-center"
-      >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4DA3FF] drop-shadow-[0_0_10px_#4DA3FF60] mb-8 sm:mb-10">
-          My Skills
-        </h1>
-        <LogoLoop
-          logos={techLogos}
-          speed={30}
-          direction="left"
-          logoHeight={50}
-          gap={50}
-          pauseOnHover
-          scaleOnHover
-          fadeOut
-          ariaLabel="Tech skills"
-        />
-      </motion.div>
     </section>
   );
 }
