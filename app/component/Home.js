@@ -40,7 +40,7 @@ export default function OnPage() {
 
       <div className="content relative z-10 mt-4 sm:mt-6 md:mt-8">
         <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
-          Crafting beautiful and functional digital experiences.
+          I focus on develop websites with beautiful user interfaces and smooth interactions.
         </p>
       </div>
 
