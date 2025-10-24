@@ -107,14 +107,7 @@ export default function AboutMe() {
           <motion.div variants={fadeInUp(1.0)}>
             <span className="text-[#4DA3FF]">&gt;_</span> My Skills
             <span className="text-[#73C2FF] font-semibold">
-              {" "}: React, Next.js, Tailwind CSS, JavaScript, HTML, CSS
-            </span>
-          </motion.div>
-
-          <motion.div variants={fadeInUp(1.1)}>
-            <span className="text-[#4DA3FF]">&gt;_</span>{" "}
-            <span className="text-[#73C2FF] font-semibold">
-              Blue is my favorite color :&#41;
+              {" "}: React, Next.js, Tailwind CSS, JS/HTML/CSS, Git, Github, Illustratir, Photoshop
             </span>
           </motion.div>
         </div>

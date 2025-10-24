@@ -8,7 +8,7 @@ const featuredProjects = [
     title: "Dessert Shop Theme",
     description:
       "A modern, responsive e-commerce theme for dessert shops and bakeries, featuring a clean design, smooth animations, and easy navigation to showcase delicious products.",
-    tech: ["ReactJS", "CSS", "JavaScript"],
+    tech: ["ReactJS", "CSS", "JavaScript, JSON file"],
     github: "https://github.com/slyvai/dessert-shop",
     demo: "https://dessert-shop-mocha.vercel.app/",
     image: "/images/dessert-shop.png",
