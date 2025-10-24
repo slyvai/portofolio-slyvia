@@ -107,7 +107,7 @@ export default function AboutMe() {
           <motion.div variants={fadeInUp(1.0)}>
             <span className="text-[#4DA3FF]">&gt;_</span> My Skills
             <span className="text-[#73C2FF] font-semibold">
-              {" "}: React, Next.js, Tailwind CSS, JS/HTML/CSS, Git, Github, Illustratir, Photoshop
+              {" "}: React, Next.js, Tailwind CSS, JS/HTML/CSS, Git, Github, Illustrator, Photoshop
             </span>
           </motion.div>
         </div>
